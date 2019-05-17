@@ -1,18 +1,34 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+<div>
+  <v-toolbar app>
+    <v-toolbar-side-icon></v-toolbar-side-icon>
+    <v-toolbar-title>智慧博物馆</v-toolbar-title>
+    <v-spacer></v-spacer>
+    <v-toolbar-items >
+      <v-btn flat round @click="onScan">
+        <v-icon>camera_alt</v-icon>
+      </v-btn>
+    </v-toolbar-items>
+  </v-toolbar>
+  <v-layout class="margin_top">
+    <router-view></router-view>
+  </v-layout>
+</div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
 
 export default {
-  name: 'home',
-  components: {
-    HelloWorld
+  methods: {
+    onScan() {
+      this.$router.push('/scan')
+    }
   }
 }
 </script>
+
+<style scoped>
+.margin_top {
+  margin-top: 80px
+}
+</style>
